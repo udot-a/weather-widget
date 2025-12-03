@@ -4,7 +4,6 @@ export async function getWeatherApi(city) {
   if (!city) {
     throw new Error('City is required to fetch weather data');
   }
-
   const params = new URLSearchParams({
     q: city,
     key: '6bfe5e35fafe42e085f152924252611',
