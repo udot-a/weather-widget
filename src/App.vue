@@ -13,7 +13,6 @@ provide(cityProvider, city);
 const getCity = async cityName => {
   city.value = cityName;
 };
-
 watch(city, newCity => {
   getCity(newCity);
 });
@@ -39,7 +38,6 @@ watch(city, newCity => {
   align-items: center;
   justify-content: center;
 }
-
 .right {
   background: var(--color-bg-main);
   padding: 50px;
