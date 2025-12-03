@@ -76,11 +76,11 @@ const dataForecast = computed(() => data?.value?.forecast?.forecastday ?? []);
   background-color: var(--color-bg-card);
   margin-bottom: 10px;
   text-align: center;
-  border-radius: 0px 0px 25px 25px;
+  border-radius: 0 0 25px 25px;
 }
 .forecast {
   display: flex;
   gap: 2px;
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 </style>
