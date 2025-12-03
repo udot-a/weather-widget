@@ -38,6 +38,7 @@ watch(city, newCity => {
   align-items: center;
   justify-content: center;
 }
+
 .right {
   background: var(--color-bg-main);
   padding: 50px;
