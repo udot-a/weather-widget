@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, watchEffect } from 'vue';
 import Error from './Error.vue';
 import Stat from './Stat.vue';
 import ForecastCard from './ForecastCard.vue';
@@ -17,10 +17,23 @@ const props = defineProps({
 
 const { data, isPending, error, isError } = useGetWeatherData(() => props.city);
 
+watchEffect(() => {
+  console.log(data.value);
+});
+
 const dataModified = computed(() => [
-  { label: 'Humidity', stat: `${data?.value?.current?.humidity ?? '--'}%` },
-  { label: 'Cloud', stat: `${data?.value?.current?.cloud ?? '--'}%` },
-  { label: 'Wind speed', stat: `${data?.value?.current?.wind_kph ?? '--'}kph` },
+  {
+    label: 'Humidity',
+    stat: `${data?.value?.forecast?.forecastday?.[props.activeIndex]?.day?.avghumidity ?? '--'}%`,
+  },
+  {
+    label: 'Cloud',
+    stat: `${data?.value?.forecast?.forecastday?.[props.activeIndex]?.day?.daily_chance_of_rain ?? '--'}%`,
+  },
+  {
+    label: 'Wind speed',
+    stat: `${data?.value?.forecast?.forecastday?.[props.activeIndex]?.day?.avgvis_km ?? '--'}kph`,
+  },
 ]);
 
 const dataForecast = computed(() => data?.value?.forecast?.forecastday ?? []);
