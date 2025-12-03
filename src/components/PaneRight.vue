@@ -5,7 +5,7 @@ import Stat from './Stat.vue';
 import ForecastCard from './ForecastCard.vue';
 import CitySelect from './CitySelect.vue';
 import { useGetWeatherData } from '../services/queries/useGetWeatherData';
-import Spinner from './spinner.vue';
+import Spinner from './Spinner.vue';
 
 const emit = defineEmits(['select-index']);
 
